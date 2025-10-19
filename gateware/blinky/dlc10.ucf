@@ -1,0 +1,4 @@
+NET "i_ifclk" LOC = "P8" | TNM_NET = i_ifclk;
+TIMESPEC TS_i_ifclk = PERIOD "i_ifclk" 20.83 ns HIGH 50%;
+
+NET "o_led_green" LOC = "A3";
