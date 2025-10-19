@@ -2,7 +2,8 @@
 
 module blinky(
     input wire i_ifclk,
-    output wire o_led_green
+    output wire o_led_green,
+    output wire o_led_red
 );
 
     wire clk_ibuf, clk;
@@ -15,5 +16,6 @@ module blinky(
     always @(posedge clk) r_count <= r_count + 1'b1;
 
     assign o_led_green = ~r_count[26];
+    assign o_led_red = ~r_count[25];
 
 endmodule
