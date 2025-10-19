@@ -4,6 +4,9 @@
 #include <fx2regs.h>
 
 void init(void) {
+    // Set Core Frequency to 48MHz
+    CPUCS = _CLKSPD1;
+
     // Select Port Function
     PORTACFG = 0;
     PORTCCFG = 0;
