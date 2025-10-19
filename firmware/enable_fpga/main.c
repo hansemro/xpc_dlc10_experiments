@@ -24,9 +24,9 @@ void init(void) {
     OEB = 0x00;
     OEC = 0x00;
     OED = 0x00;
-    OEE = 1U << 6;
 
     // Enable FPGA Power
+    OEE = 1U << 6;
     IOE = 1U << 6;
 
     // Enable IFCLK
