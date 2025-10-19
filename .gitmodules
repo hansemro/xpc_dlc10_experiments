@@ -1,0 +1,3 @@
+[submodule "firmware/libfx2"]
+	path = firmware/libfx2
+	url = https://github.com/whitequark/libfx2.git
