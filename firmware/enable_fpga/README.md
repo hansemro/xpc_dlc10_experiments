@@ -90,7 +90,7 @@ Now you are setup to use Glasgow JTAG applets!
 
 Run `jtag-pinout` to identify JTAG pins:
 
-```
+``` bash
 $ glasgow run jtag-pinout -V A=3.3 --pins A0,A1,A2,A3
 I: g.hardware.device: generating bitstream ID aba57cbb2166af6c57db29d64da37091
 I: g.hardware.assembly: port A voltage set to 3.3 V
@@ -103,4 +103,51 @@ I: g.applet.interface.jtag_pinout: detecting TDI
 I: g.applet.interface.jtag_pinout: shifted 6-bit IR with TCK=A2 TMS=A1 TDI=A0 TDO=A3
 I: g.applet.interface.jtag_pinout: JTAG interface without reset detected
 I: g.applet.interface.jtag_pinout: use `jtag-probe -V A=3.30 --tck A2 --tms A1 --tdi A0 --tdo A3` as arguments
+```
+
+### [Glasgow] Loading a Bitstream with OpenOCD
+
+With the Glasgow pinout for JTAG identified, start an openocd session with the
+`jtag-openocd` applet:
+
+``` bash
+$ glasgow run jtag-openocd -V A=3.3 --tck A2 --tms A1 --tdi A0 --tdo A3 tcp:localhost:2222
+I: g.hardware.device: generating bitstream ID 9ad73c9a6e9a4b1e99edb400bde3c628
+I: g.hardware.assembly: port A voltage set to 3.3 V
+I: g.hardware.assembly: port B voltage set to 3.3 V
+I: g.cli: running handler for applet 'jtag-openocd'
+I: g.applet.bridge.jtag_openocd: socket: listening at tcp:localhost:2222
+```
+
+In another terminal shell, load the bitstream with openocd:
+
+``` bash
+$ openocd -c 'adapter driver remote_bitbang' \
+        -c 'remote_bitbang port 2222' \
+        -c 'reset_config none' \
+        -c 'jtag newtap xc3s tap -irlen 6 -ignore-version -expected-id 0x02218093' \
+        -c 'pld device virtex2 xc3s.tap'
+        -c 'init' \
+        -c 'pld load 0 /path/to/bitstream.bit' \
+        -c 'shutdown'
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : only one transport option; autoselect 'jtag'
+none separate
+
+
+Warn : An adapter speed is not selected in the init scripts. OpenOCD will try to run the adapter at the low speed (100 kHz)
+Warn : To remove this warnings and achieve reasonable communication speed with the target, set "adapter speed" or "jtag_rclk" in the init scripts.
+Info : Initializing remote_bitbang driver
+Info : Connecting to localhost:2222
+Info : remote_bitbang driver initialized
+Info : This adapter doesn't support configurable speed
+Info : JTAG tap: xc3s.tap tap/device found: 0x02218093 (mfg: 0x049 (Xilinx), part: 0x2218, ver: 0x0)
+Warn : gdb services need one or more targets defined
+loaded file /path/to/bitstream.bit to pld device 0 in 0s 18402us
+
+shutdown command invoked
+Info : remote_bitbang interface quit
 ```
