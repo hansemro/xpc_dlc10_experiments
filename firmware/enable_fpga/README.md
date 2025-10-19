@@ -47,7 +47,7 @@ make
 ## Loading the Firmware
 
 ```
-make VID=dead PID=cafe load
+make VID=<VID> PID=<PID> load
 ```
 
 ## Connecting to Spartan-3A JTAG Pins
@@ -81,7 +81,7 @@ make VID=dead PID=cafe load
 6. Connect the DLC10 to a computer via USB and load the `enable_fpga` firmware:
 
 ```
-make VID=dead PID=cafe load
+make VID=<VID> PID=<PID> load
 ```
 
 Now you are setup to use Glasgow JTAG applets!
