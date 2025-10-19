@@ -22,8 +22,11 @@ void init(void) {
     // Tristate pins to FPGA
     OEA = 0x00;
     OEB = 0x00;
-    OEC = 0x00;
     OED = 0x00;
+
+    // Set Manual Reset (MR) pin of MAX6412 high to stop PROG_B from toggling
+    OEC = (1U << 7);
+    PC7 = 1;
 
     // Enable FPGA Power
     OEE = 1U << 6;
