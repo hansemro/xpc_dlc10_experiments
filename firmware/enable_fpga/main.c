@@ -1,5 +1,5 @@
 // Copyright (C) Hansem Ro <hansemro@outlook.com>
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: 0BSD
 
 #include <fx2regs.h>
 
