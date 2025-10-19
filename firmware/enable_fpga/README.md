@@ -111,7 +111,7 @@ With the Glasgow pinout for JTAG identified, start an openocd session with the
 `jtag-openocd` applet:
 
 ``` bash
-$ glasgow run jtag-openocd -V A=3.3 --tck A2 --tms A1 --tdi A0 --tdo A3 tcp:localhost:2222
+$ glasgow run jtag-openocd -V A=3.3 --tck A2 --tms A1 --tdi A0 --tdo A3 -f 1000 tcp:localhost:2222
 I: g.hardware.device: generating bitstream ID 9ad73c9a6e9a4b1e99edb400bde3c628
 I: g.hardware.assembly: port A voltage set to 3.3 V
 I: g.hardware.assembly: port B voltage set to 3.3 V
