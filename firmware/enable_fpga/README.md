@@ -24,9 +24,9 @@ For Fedora, an additional step is needed after installing sdcc to link
 `sdcc-`-prefixed executables to ones without:
 
 ```
-sudo update-alternatives --install /usr/bin/sdcc sdcc /usr/bin/sdcc-sdcc
-sudo update-alternatives --install /usr/bin/sdas8051 sdas8051 /usr/bin/sdcc-sdas8051
-sudo update-alternatives --install /usr/bin/sdar sdar /usr/bin/sdcc-sdar
+sudo update-alternatives --install /usr/bin/sdcc sdcc /usr/bin/sdcc-sdcc 20
+sudo update-alternatives --install /usr/bin/sdas8051 sdas8051 /usr/bin/sdcc-sdas8051 20
+sudo update-alternatives --install /usr/bin/sdar sdar /usr/bin/sdcc-sdar 20
 ```
 
 ## Building the Firmware
