@@ -1,5 +1,5 @@
-NET "i_ifclk" LOC = "P8" | TNM_NET = i_ifclk;
+NET "i_ifclk" LOC = "P8" | TNM_NET = i_ifclk | IOSTANDARD = LVCMOS33;
 TIMESPEC TS_i_ifclk = PERIOD "i_ifclk" 20.83 ns HIGH 50%;
 
-NET "o_led_green" LOC = "A3";
-NET "o_led_red" LOC = "A4";
+NET "o_led_green" LOC = "A3" | IOSTANDARD = LVCMOS33;
+NET "o_led_red" LOC = "A4" | IOSTANDARD = LVCMOS33;
