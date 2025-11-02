@@ -126,7 +126,7 @@ $ openocd -c 'adapter driver remote_bitbang' \
         -c 'remote_bitbang port 2222' \
         -c 'reset_config none' \
         -c 'jtag newtap xc3s tap -irlen 6 -ignore-version -expected-id 0x02218093' \
-        -c 'pld device virtex2 xc3s.tap'
+        -c 'pld device virtex2 xc3s.tap' \
         -c 'init' \
         -c 'pld load 0 /path/to/bitstream.bit' \
         -c 'shutdown'
