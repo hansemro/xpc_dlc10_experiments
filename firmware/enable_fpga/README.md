@@ -8,8 +8,19 @@ This firmware configures pins for external JTAG access, and enables power and
 > I recommend programming a different VID:PID to prevent Vivado from
 > overwriting the firmware.
 >
+> First build libfx2 firmware which includes 2nd stage firmware `boot-cypress`:
+>
 > ```
-> fx2tool -d 03fd:0013 -S <Vend_Ax.hex> update -V dead -P cafe
+> cd ../libfx2/firmware
+> make
+> ```
+>
+> Program a new VID:PID (e.g. dead:cafe) into EEPROM using fx2tool and the 2nd
+> stage firmware:
+>
+> ```
+> cd boot-cypress
+> fx2tool -d 03fd:0013 -S boot-cypress.ihex update -V dead -P cafe
 > ```
 
 ## Prerequisites
