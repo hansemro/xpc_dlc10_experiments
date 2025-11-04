@@ -22,6 +22,7 @@
 #NET "o_led_red" LOC = "A4" | IOSTANDARD = LVCMOS33;
 
 # Connector IO buffers
+# 3V3 must be present on VREF input for IO buffers to function!
 #NET "o_conn_halt_oe" LOC = "R13" | IOSTANDARD = LVCMOS33;
 #NET "o_conn_halt" LOC = "P13" | IOSTANDARD = LVCMOS33;
 #NET "i_conn_halt" LOC = "L7" | IOSTANDARD = LVCMOS33; # input only
