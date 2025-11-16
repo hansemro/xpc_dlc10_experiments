@@ -64,10 +64,10 @@ uint32_t check_identity(void) {
 int main(void) {
     uint32_t idcode;
     init();
-    printf("Checking for FPGA identity %#lx:\n", SPARTAN3A_IDCODE);
+    printf("Checking for FPGA identity 0x%lx:\n", SPARTAN3A_IDCODE);
     while(1) {
         idcode = check_identity();
-        printf("Received %s IDCODE: %#lx\n", 
+        printf("Received %s IDCODE: 0x%lx\n",
                 idcode == SPARTAN3A_IDCODE ? "valid" : "invalid",
                 idcode);
         delay_ms(1000);
