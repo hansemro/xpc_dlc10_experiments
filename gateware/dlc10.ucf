@@ -56,13 +56,16 @@
 #NET "i_fx2_PA6" LOC = "K6" | IOSTANDARD = LVCMOS33; # input only
 #NET "i_fx2_PA7" LOC = "K5" | IOSTANDARD = LVCMOS33; # input only
 # FX2 PB0 -> FPGA_TDI
+#NET "io_fx2_PB0" LOC = "M1" | IOSTANDARD = LVCMOS33;
 #NET "io_fx2_PB1" LOC = "H5" | IOSTANDARD = LVCMOS33;
 #NET "io_fx2_PB2" LOC = "M4" | IOSTANDARD = LVCMOS33;
 #NET "io_fx2_PB3" LOC = "P1" | IOSTANDARD = LVCMOS33;
 # FX2 PB4 -> FPGA_TMS
+#NET "io_fx2_PB4" LOC = "K13" | IOSTANDARD = LVCMOS33;
 #NET "io_fx2_PB5" LOC = "P2" | IOSTANDARD = LVCMOS33;
 #NET "io_fx2_PB6" LOC = "H3" | IOSTANDARD = LVCMOS33;
 # FX2 PB7 -> tristate buffer -> FPGA_TCK
+#NET "io_fx2_PB7" LOC = "R1" | IOSTANDARD = LVCMOS33;
 #NET "i_fx2_PC0" LOC = "M8" | IOSTANDARD = LVCMOS33; # input only
 #NET "i_fx2_PC1" LOC = "L5" | IOSTANDARD = LVCMOS33; # input only
 #NET "i_fx2_PC2" LOC = "G6" | IOSTANDARD = LVCMOS33; # input only
